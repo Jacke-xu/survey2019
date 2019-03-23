@@ -13,13 +13,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
     let btn = UIButton(frame: CGRect(x: 50, y: 100, width: 50, height: 50))
     btn.backgroundColor = .red
     btn.addTarget(self, action: #selector(clickBtn(sender:)), for: UIControl.Event.touchUpInside)
     self.view.addSubview(btn)
-    
-
   }
 
   @objc func clickBtn(sender: UIButton) {
@@ -70,9 +67,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
   }
   // 弹出窗将要复位到指定视图区域时触发的方法
   func popoverPresentationController(_ popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView>) {
-    
   }
-
-  
 }
 
