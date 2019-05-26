@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:04_popView/04_popView.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:03_PopOver/03_PopOver.xcodeproj">
    </FileRef>
    <FileRef
