@@ -21,9 +21,17 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  Byte
-  NSData *data = [@"f" dataUsingEncoding:NSUTF8StringEncoding];
-  NSLog(@"%@ %d", data, data.length);
+  CAGradientLayer *layer = [[CAGradientLayer alloc] init];
+  layer.colors = @[UIColor.redColor, UIColor.blueColor];
+  layer.startPoint = CGPointMake(0, 0);
+  layer.endPoint = CGPointMake(0, 1);
+  layer.frame = CGRectMake(0, 0, self.view.frame.size.width, 100);
+  UIView *view = [[UIView alloc] init];
+  [view.layer addSublayer:layer];
+  [self.view addSubview:view];
+//  Byte
+//  NSData *data = [@"f" dataUsingEncoding:NSUTF8StringEncoding];
+//  NSLog(@"%@ %d", data, data.length);
   
 //  _lb = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 300, 300)];
 //  _lb.textColor = UIColor.redColor;
