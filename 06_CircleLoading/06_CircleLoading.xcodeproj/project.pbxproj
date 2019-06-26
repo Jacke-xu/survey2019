@@ -14,6 +14,8 @@
 		82763C0722BC8FF000AC8197 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82763C0522BC8FF000AC8197 /* LaunchScreen.storyboard */; };
 		82763C1222BC8FF000AC8197 /* _6_CircleLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82763C1122BC8FF000AC8197 /* _6_CircleLoadingTests.swift */; };
 		82763C1D22BC8FF000AC8197 /* _6_CircleLoadingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82763C1C22BC8FF000AC8197 /* _6_CircleLoadingUITests.swift */; };
+		82BBE55222C3188200C761A5 /* MOCircleLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BBE55122C3188200C761A5 /* MOCircleLoadingView.m */; };
+		82BBE55422C3195500C761A5 /* CircleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBE55322C3195500C761A5 /* CircleLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 		82763C1822BC8FF000AC8197 /* 06_CircleLoadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 06_CircleLoadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82763C1C22BC8FF000AC8197 /* _6_CircleLoadingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6_CircleLoadingUITests.swift; sourceTree = "<group>"; };
 		82763C1E22BC8FF000AC8197 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82BBE54F22C3188100C761A5 /* 06_CircleLoading-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "06_CircleLoading-Bridging-Header.h"; sourceTree = "<group>"; };
+		82BBE55022C3188200C761A5 /* MOCircleLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCircleLoadingView.h; sourceTree = "<group>"; };
+		82BBE55122C3188200C761A5 /* MOCircleLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCircleLoadingView.m; sourceTree = "<group>"; };
+		82BBE55322C3195500C761A5 /* CircleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +105,14 @@
 			children = (
 				82763BFC22BC8FEE00AC8197 /* AppDelegate.swift */,
 				82763BFE22BC8FEE00AC8197 /* ViewController.swift */,
+				82BBE55322C3195500C761A5 /* CircleLoadingView.swift */,
+				82BBE55022C3188200C761A5 /* MOCircleLoadingView.h */,
+				82BBE55122C3188200C761A5 /* MOCircleLoadingView.m */,
 				82763C0022BC8FEE00AC8197 /* Main.storyboard */,
 				82763C0322BC8FF000AC8197 /* Assets.xcassets */,
 				82763C0522BC8FF000AC8197 /* LaunchScreen.storyboard */,
 				82763C0822BC8FF000AC8197 /* Info.plist */,
+				82BBE54F22C3188100C761A5 /* 06_CircleLoading-Bridging-Header.h */,
 			);
 			path = 06_CircleLoading;
 			sourceTree = "<group>";
@@ -193,6 +203,7 @@
 				TargetAttributes = {
 					82763BF822BC8FEE00AC8197 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					82763C0C22BC8FF000AC8197 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -256,6 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BBE55222C3188200C761A5 /* MOCircleLoadingView.m in Sources */,
+				82BBE55422C3195500C761A5 /* CircleLoadingView.swift in Sources */,
 				82763BFF22BC8FEE00AC8197 /* ViewController.swift in Sources */,
 				82763BFD22BC8FEE00AC8197 /* AppDelegate.swift in Sources */,
 			);
@@ -432,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WUQQBVA6S;
 				INFOPLIST_FILE = 06_CircleLoading/Info.plist;
@@ -441,6 +455,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moxiaoyan.test2.-6-CircleLoading";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "06_CircleLoading/06_CircleLoading-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WUQQBVA6S;
 				INFOPLIST_FILE = 06_CircleLoading/Info.plist;
@@ -459,6 +476,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.moxiaoyan.test2.-6-CircleLoading";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "06_CircleLoading/06_CircleLoading-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

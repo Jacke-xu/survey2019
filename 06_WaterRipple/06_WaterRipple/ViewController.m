@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  // 水波进度
   self.progressView = [[WWTicPodWaterRipperView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
   self.progressView.center = self.view.center;
   [self.view addSubview:self.progressView];
