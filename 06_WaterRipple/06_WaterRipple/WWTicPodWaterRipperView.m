@@ -41,11 +41,15 @@
 - (void)setProgress:(CGFloat)progress {
   _progress = progress;
   _progressLb.text = [NSString stringWithFormat:@"%ld%%", [[NSNumber numberWithFloat:progress * 100] integerValue]];
-  if (progress > 0.5) {
-    _progressLb.textColor = [UIColor colorWithRed:255.0/255.0 green:240.0/255.0 blue:245.0/255.0 alpha:progress];//[UIColor colorWithWhite:1 alpha:progress];
+  UIColor *textColor;;
+  if (_progress > 0.5) {
+    CGFloat index = (_progress - 0.5) / 0.5;
+    textColor = [UIColor colorWithRed:(192+(255-192)*index)/255.0 green:(243+(255-243)*index)/255.0 blue:(237+(255-237)*index)/255.0 alpha:1];
   } else {
-    _progressLb.textColor = [UIColor colorWithRed:15.0/255.0 green:197.0/255.0 blue:177.0/255.0 alpha:1-progress];
+    CGFloat index = _progress / 0.5;
+    textColor = [UIColor colorWithRed:(12+(192-12)*index)/255.0 green:(189+(243-189)*index)/255.0 blue:(167+(237-167)*index)/255.0 alpha:1];
   }
+  _progressLb.textColor = textColor;
   CGFloat y = self.bounds.size.height * (1-progress);
   _firstImgV.frame = CGRectMake(-self.bounds.size.width, y, 2*self.bounds.size.width, self.bounds.size.height);
   _secondImgV.frame = CGRectMake(-self.bounds.size.width, y, 2*self.bounds.size.width, self.bounds.size.height);
