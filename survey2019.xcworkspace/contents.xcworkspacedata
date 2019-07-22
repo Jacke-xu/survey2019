@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:07_QRScan/07_QRScan.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:06_WaterRipple/06_WaterRipple.xcodeproj">
    </FileRef>
    <FileRef
