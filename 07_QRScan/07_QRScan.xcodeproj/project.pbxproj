@@ -15,6 +15,9 @@
 		8226C25322D751F30095F7AA /* _7_QRScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226C25222D751F30095F7AA /* _7_QRScanTests.swift */; };
 		8226C25E22D751F30095F7AA /* _7_QRScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226C25D22D751F30095F7AA /* _7_QRScanUITests.swift */; };
 		824FB61422E1B12A0031F1C5 /* MOQRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824FB61322E1B12A0031F1C5 /* MOQRScanViewController.swift */; };
+		824FB61622E6A5BC0031F1C5 /* MOAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824FB61522E6A5BC0031F1C5 /* MOAuthorizationManager.swift */; };
+		829DABB222EB067A0016006D /* MOAuthorizationCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829DABB122EB067A0016006D /* MOAuthorizationCamera.swift */; };
+		829DABB422EB06E60016006D /* MOAuthorizationPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829DABB322EB06E60016006D /* MOAuthorizationPhoto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		8226C25D22D751F30095F7AA /* _7_QRScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _7_QRScanUITests.swift; sourceTree = "<group>"; };
 		8226C25F22D751F30095F7AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		824FB61322E1B12A0031F1C5 /* MOQRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOQRScanViewController.swift; sourceTree = "<group>"; };
+		824FB61522E6A5BC0031F1C5 /* MOAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOAuthorizationManager.swift; sourceTree = "<group>"; };
+		829DABB122EB067A0016006D /* MOAuthorizationCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOAuthorizationCamera.swift; sourceTree = "<group>"; };
+		829DABB322EB06E60016006D /* MOAuthorizationPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOAuthorizationPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		8226C23C22D751F00095F7AA /* 07_QRScan */ = {
 			isa = PBXGroup;
 			children = (
+				829DABB022EB05D20016006D /* Authorization */,
 				8226C23D22D751F00095F7AA /* AppDelegate.swift */,
 				8226C23F22D751F00095F7AA /* ViewController.swift */,
 				824FB61322E1B12A0031F1C5 /* MOQRScanViewController.swift */,
@@ -126,6 +133,16 @@
 				8226C25F22D751F30095F7AA /* Info.plist */,
 			);
 			path = 07_QRScanUITests;
+			sourceTree = "<group>";
+		};
+		829DABB022EB05D20016006D /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				824FB61522E6A5BC0031F1C5 /* MOAuthorizationManager.swift */,
+				829DABB122EB067A0016006D /* MOAuthorizationCamera.swift */,
+				829DABB322EB06E60016006D /* MOAuthorizationPhoto.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8226C24022D751F00095F7AA /* ViewController.swift in Sources */,
+				829DABB422EB06E60016006D /* MOAuthorizationPhoto.swift in Sources */,
+				824FB61622E6A5BC0031F1C5 /* MOAuthorizationManager.swift in Sources */,
 				824FB61422E1B12A0031F1C5 /* MOQRScanViewController.swift in Sources */,
 				8226C23E22D751F00095F7AA /* AppDelegate.swift in Sources */,
+				829DABB222EB067A0016006D /* MOAuthorizationCamera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

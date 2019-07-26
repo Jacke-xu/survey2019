@@ -39,33 +39,20 @@ class MOQRScanViewController: UIViewController {
   
   // MARK: - 检查授权
   func checkAuthorzation() {
-    let status = AVCaptureDevice.authorizationStatus(for: .video)
-    if status == .authorized {  // 已授权
-      print("已授权, 加载view")
-      DispatchQueue.main.async {
-        self.loadScanView()
-        self.captureSession.startRunning()
-      }
-    } else if status == .notDetermined {  // 未授权
-      print("未授权, request")
-      AVCaptureDevice.requestAccess(for: .video) { (status) in
-        self.checkAuthorzation()
-      }
-    } else {  // 拒绝/受限
-      print("拒绝/受限 aler 用户跳转系统设置")
-      let alert = UIAlertController(title: "相机访问受限", message: "跳转“设置”， 允许访问您的相机", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "取消", style: .default, handler: { (_) in
-//        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.dismiss(animated: true, completion: nil)
-      }))
-      let destructiveAct = UIAlertAction(title: "设置", style: .default) { (_) in
-        let url = URL(string: UIApplication.openSettingsURLString)
-        if UIApplication.shared.canOpenURL(url!) {
-          UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    if MOAuthorizationManager().authorizeFactory(type: .camera).status() != .authorized {
+      MOAuthorizationManager().requestAuthoriza(type: .camera) { (status) in
+        if status == .authorized {
+          DispatchQueue.main.async {
+            self.loadScanView()
+            self.captureSession.startRunning()
+          }
+        } else { // 没有权限
+          self.navigationController?.dismiss(animated: true, completion: nil)
         }
       }
-      alert.addAction(destructiveAct)
-      self.present(alert, animated: true, completion: nil)
+    } else {
+      self.loadScanView()
+      self.captureSession.startRunning()
     }
   }
   
@@ -123,34 +110,26 @@ class MOQRScanViewController: UIViewController {
   }
   
   @objc func clickPhoto() {
-    let status = PHPhotoLibrary.authorizationStatus()
-    if status == .authorized {  // 已授权
-      print("已授权, 跳转相册")
-      let picker = UIImagePickerController()
-      picker.title = "照片"
-      picker.delegate = self
-      picker.allowsEditing = true
-      picker.sourceType = .photoLibrary
-      picker.navigationBar.barStyle = .default
-      present(picker, animated: true, completion: nil)
-    } else if status == .notDetermined {  // 未授权
-      print("未授权, request")
-      PHPhotoLibrary.requestAuthorization { (status) in
-        self.clickPhoto()
-      }
-    } else {  // 拒绝/受限
-      print("拒绝/受限 aler 用户跳转系统设置")
-      let alert = UIAlertController(title: "相册访问受限", message: "跳转“设置”， 允许访问您的相册", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
-      let destructiveAct = UIAlertAction(title: "设置", style: .default) { (_) in
-        let url = URL(string: UIApplication.openSettingsURLString)
-        if UIApplication.shared.canOpenURL(url!) {
-          UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    if MOAuthorizationManager().authorizeFactory(type: .photo).status() != .authorized {
+      MOAuthorizationManager().requestAuthoriza(type: .photo) { (status) in
+        if status == .authorized {
+          DispatchQueue.main.async {
+            self.presentPhotoLabrary()
+          }
         }
       }
-      alert.addAction(destructiveAct)
-      self.present(alert, animated: true, completion: nil)
+    } else {
+      presentPhotoLabrary()
     }
+  }
+  func presentPhotoLabrary() {
+    let picker = UIImagePickerController()
+    picker.title = "照片"
+    picker.delegate = self
+    picker.allowsEditing = true
+    picker.sourceType = .photoLibrary
+    picker.navigationBar.barStyle = .default
+    self.present(picker, animated: true, completion: nil)
   }
   
   private var isLoadScanView = false
