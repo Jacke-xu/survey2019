@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		821A59CF223F70EE00E177A9 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 821A59CE223F70EE00E177A9 /* NSString+SHA1.m */; };
 		821F25FF22292408003298F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F25FE22292408003298F3 /* AppDelegate.m */; };
 		821F260222292408003298F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F260122292408003298F3 /* ViewController.m */; };
 		821F260522292408003298F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821F260322292408003298F3 /* Main.storyboard */; };
@@ -17,8 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		821A59CD223F70EE00E177A9 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
-		821A59CE223F70EE00E177A9 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		821F25FA22292408003298F3 /* 01_AVAudioSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 01_AVAudioSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821F25FD22292408003298F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		821F25FE22292408003298F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,8 +58,6 @@
 		821F25FC22292408003298F3 /* 01_AVAudioSession */ = {
 			isa = PBXGroup;
 			children = (
-				821A59CD223F70EE00E177A9 /* NSString+SHA1.h */,
-				821A59CE223F70EE00E177A9 /* NSString+SHA1.m */,
 				821F25FD22292408003298F3 /* AppDelegate.h */,
 				821F25FE22292408003298F3 /* AppDelegate.m */,
 				821F260022292408003298F3 /* ViewController.h */,
@@ -148,7 +143,6 @@
 			files = (
 				821F260222292408003298F3 /* ViewController.m in Sources */,
 				821F260D22292409003298F3 /* main.m in Sources */,
-				821A59CF223F70EE00E177A9 /* NSString+SHA1.m in Sources */,
 				821F25FF22292408003298F3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
