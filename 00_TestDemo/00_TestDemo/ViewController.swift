@@ -15,11 +15,21 @@ class ViewController: UIViewController {
 
 //    testImageTransform()
 //    testStackView()
-    textGradientLayer()
+//    textGradientLayer()
+    print(numJewelsInStones("z", "ZZ"))
   }
   
-  func textGradientLayer() {
-    
+  func numJewelsInStones(_ J: String, _ S: String) -> Int {
+    var n = 0;
+    for i in S {
+      if J.contains(i) {
+        n += 1
+      }
+    }
+    return n
+  }
+  
+  func textGradientLayer() { // UIView 颜色渐变
     let rect = CGRect(x: 30, y: 60, width: 200, height: 200)
     let gradientView = UIView(frame: rect)
     
@@ -29,7 +39,6 @@ class ViewController: UIViewController {
     let fromColor = UIColor.yellow.cgColor
     let midColor = UIColor.red.cgColor
     let toColor = UIColor.purple.cgColor
-    
     gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
       //[fromColor,midColor,toColor]//将渐变层的颜色属性设置为由三个颜色所构建的数组
     
@@ -37,7 +46,7 @@ class ViewController: UIViewController {
     self.view.addSubview(gradientView)
   }
   
-  func testStackView() {
+  func testStackView() { // stack 子视图
     let img1 = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     img1.backgroundColor = .red
     
@@ -66,7 +75,7 @@ class ViewController: UIViewController {
     self.view.addSubview(stackView2)
   }
 
-  func testImageTransform() {
+  func testImageTransform() { // UIImageView 翻转
     // 测试 设置图片后翻转 和 翻转后设置图片
     let imgV1 = UIImageView(frame: CGRect(x: 50, y: 50, width: 80, height: 80))
     imgV1.image = UIImage(named: "ticpod_translate_normal")

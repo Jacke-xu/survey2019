@@ -28,7 +28,7 @@
 - (void)click {
   PopViewController *vc = [[PopViewController alloc] init];
   vc.modalPresentationStyle = UIModalPresentationFormSheet;
-  vc.preferredContentSize = CGSizeMake(300, 300);
+  vc.preferredContentSize = CGSizeMake(100, 100);
   vc.presentationController.delegate = self;
   [self presentViewController:vc animated:YES completion:nil];
 }
