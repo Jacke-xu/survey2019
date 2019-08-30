@@ -20,6 +20,7 @@ class MOReminderViewController: UIViewController {
 
   private func checkReminder() {
     // .reminder 提醒
+    // 1.检查授权
     store.requestAccess(to: .reminder) { (granted, error) in
       if granted { // 已授权
         print("已授权")
@@ -30,20 +31,20 @@ class MOReminderViewController: UIViewController {
       }
     }
   }
-  // MARK: 查询日历事件
+  // MARK: 2.查询提醒事件
   private func inquireReminder() {
-    // 1.使用谓词
+    // 1).使用谓词
     // starting = nil 表示从最开始查找
     // ending = nil 表示查找到最后
-    // 1).查找未完成的提醒
+    // 查找未完成的提醒
     var predicate = store.predicateForIncompleteReminders(withDueDateStarting: nil, ending: nil, calendars: nil)
-    
-    // 2).查找完成的提醒
+
+    // 查找完成的提醒
     predicate = store.predicateForCompletedReminders(withCompletionDateStarting: nil, ending: nil, calendars: nil)
-    
-    // 3).查找所有提醒
+
+    // 查找所有提醒
     predicate = store.predicateForReminders(in: nil)
-    
+
     store.fetchReminders(matching: predicate) { [weak self] (reminders) in
       guard (reminders != nil) else {
         return
@@ -59,10 +60,10 @@ class MOReminderViewController: UIViewController {
         print("alarm: \(reminder.alarms?.first)")
       }
     }
-    // 2.使用identifer查找
-    //    store.calendarItem(withIdentifier: "")
+    // 2).使用identifer查找
+    store.calendarItem(withIdentifier: "")
   }
-  // MARK: - 创建
+  // MARK: - 3.创建
   @objc private func addReminder() {
     let reminder: EKReminder = EKReminder(eventStore: store)
     reminder.calendar = store.defaultCalendarForNewReminders()
@@ -110,7 +111,7 @@ class MOReminderViewController: UIViewController {
 }
 
 extension MOReminderViewController: UITableViewDataSource, UITableViewDelegate {
-  // MARK: - 修改，在点击方法里做了些默认的修改
+  // MARK: - 4.修改，在点击方法里做了些默认的修改
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let reminder: EKReminder = reminders![indexPath.row]
     reminder.title = "修改后的 提醒你哦~"
@@ -129,7 +130,7 @@ extension MOReminderViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
     return "Delete"
   }
-  // MARK: - 删除
+  // MARK: - 5.删除
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     let reminder: EKReminder = reminders![indexPath.row]
     do {

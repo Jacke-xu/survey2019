@@ -20,6 +20,7 @@ class MOCalenderViewController: UIViewController {
   
   func checkCalender() {
     // .event 日历
+    // 1.检查授权
     store.requestAccess(to: .event) { (granted, error) in
       if granted { // 已授权
         print("已授权")
@@ -31,6 +32,7 @@ class MOCalenderViewController: UIViewController {
     }
   }
   
+  // MARK: 查询日历事件
   func inquireCalender() {
     // 1.使用谓词
     let calendar = NSCalendar.current
@@ -44,28 +46,24 @@ class MOCalenderViewController: UIViewController {
     endComponents.month = 3
     let endDate:Date = calendar.date(byAdding: endComponents, to: Date()) ?? Date()
     print("onDateAgo: \(endDate)")
-    
+
     // 参数calendars是一个calendar的集合，如果为nil，表示所有用户的calendars
     let predicate = store.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
-    
+
     // 该方法为同步方法，最好放在工作线程里做
     let events = store.events(matching: predicate)
-    
-    // sort 按时间排序
-    var stortedEvents = Array<EKEvent>()
-    stortedEvents = events.sorted { (event1, event2) -> Bool in
-      return event1.startDate.compare(event2.startDate) == .orderedAscending
-    }
-    print("stortedEvents: \(stortedEvents)")
+
+    print("events: \(events)")
     self.events = events
     DispatchQueue.main.async {
       self.tableView.reloadData()
     }
     // 2.使用identifier获取
-    //    store.event(withIdentifier: "")
+//    store.event(withIdentifier: "")
   }
   // MARK: - 创建
   @objc private func addCalendar() {
+    // 3.创建
     let event = EKEvent(eventStore: store)
     event.title = "私人课"
     event.startDate = Date()
@@ -116,6 +114,7 @@ class MOCalenderViewController: UIViewController {
 extension MOCalenderViewController: UITableViewDataSource, UITableViewDelegate {
   // MARK: - 修改，在点击方法里做了些默认的修改
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // 5.修改
     let event: EKEvent = events![indexPath.row]
     event.title = "修改后的 私人课~"
     do {
@@ -135,6 +134,7 @@ extension MOCalenderViewController: UITableViewDataSource, UITableViewDelegate {
   }
   // MARK: - 删除
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    // 4.删除
     let event: EKEvent = events![indexPath.row]
     do {
       try store.remove(event, span: .futureEvents, commit: true)
