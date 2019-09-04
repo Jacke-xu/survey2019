@@ -53,6 +53,11 @@ class MOCalenderViewController: UIViewController {
     // 该方法为同步方法，最好放在工作线程里做
     let events = store.events(matching: predicate)
 
+    // sort 按时间排序
+//    var stortedEvents = Array<EKEvent>()
+//    stortedEvents = events.sorted { (event1, event2) -> Bool in
+//      return event1.startDate.compare(event2.startDate) == .orderedAscending
+//    }
     print("events: \(events)")
     self.events = events
     DispatchQueue.main.async {

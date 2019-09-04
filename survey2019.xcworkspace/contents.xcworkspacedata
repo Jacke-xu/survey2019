@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:09_MultiDelegate_Swift/09_MultiDelegate_Swift.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:08_EventKit/08_EventKit.xcodeproj">
    </FileRef>
    <FileRef

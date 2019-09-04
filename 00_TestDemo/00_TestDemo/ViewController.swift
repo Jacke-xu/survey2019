@@ -16,19 +16,20 @@ class ViewController: UIViewController {
 //    testImageTransform()
 //    testStackView()
 //    textGradientLayer()
-    print(numJewelsInStones("z", "ZZ"))
+    print(twoSum([2, 7, 11, 15], 9))
   }
   
-  func numJewelsInStones(_ J: String, _ S: String) -> Int {
-    var n = 0;
-    for i in S {
-      if J.contains(i) {
-        n += 1
+  func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    for i in 0..<nums.count {
+      for j in i+1..<nums.count {
+        if nums[i] + nums[j] == target {
+          return [i, j]
+        }
       }
     }
-    return n
+    return []
   }
-  
+
   func textGradientLayer() { // UIView 颜色渐变
     let rect = CGRect(x: 30, y: 60, width: 200, height: 200)
     let gradientView = UIView(frame: rect)
