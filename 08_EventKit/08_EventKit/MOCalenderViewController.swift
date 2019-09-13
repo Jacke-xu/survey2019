@@ -76,6 +76,11 @@ class MOCalenderViewController: UIViewController {
     let alarm = EKAlarm(absoluteDate: Date().addingTimeInterval(500))
     event.addAlarm(alarm)
     event.calendar = store.defaultCalendarForNewEvents
+    // 重复 EKRecurrenceRule
+    // 如果你提供了多种参数组合，则只会执行days的方式
+    let weekDays = [EKRecurrenceDayOfWeek(.monday), EKRecurrenceDayOfWeek(.friday)]
+    let recurrenceRule = EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, daysOfTheWeek: weekDays, daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
+    event.addRecurrenceRule(recurrenceRule)
     do {
       try store.save(event, span: .futureEvents, commit: true)
     } catch {

@@ -16,6 +16,7 @@ class MOReminderViewController: UIViewController {
     super.viewDidLoad()
     setupView()
     checkReminder()
+    
   }
 
   private func checkReminder() {
@@ -44,6 +45,7 @@ class MOReminderViewController: UIViewController {
 
     // 查找所有提醒
     predicate = store.predicateForReminders(in: nil)
+    
 
     store.fetchReminders(matching: predicate) { [weak self] (reminders) in
       guard (reminders != nil) else {
@@ -58,6 +60,9 @@ class MOReminderViewController: UIViewController {
         // 如果想要停止获取的操作，return cancelFetchRequest
         print("reminder: \(reminder)")
         print("alarm: \(reminder.alarms?.first)")
+        // TODO 公司需求: 获取下一次提醒时间
+        print("下一次提醒时间： \(MOTool().nextAlertTime(reminder: reminder))")
+        
       }
     }
     // 2).使用identifer查找
@@ -68,6 +73,7 @@ class MOReminderViewController: UIViewController {
     let reminder: EKReminder = EKReminder(eventStore: store)
     reminder.calendar = store.defaultCalendarForNewReminders()
     reminder.title = "提醒你哦~"
+    reminder.priority = 1 // 优先级: 1-4:high 5:medium 6-9:low
     let alarm = EKAlarm(absoluteDate: Date(timeIntervalSinceNow: 20))
     reminder.addAlarm(alarm)
     do {
@@ -115,6 +121,7 @@ extension MOReminderViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let reminder: EKReminder = reminders![indexPath.row]
     reminder.title = "修改后的 提醒你哦~"
+    reminder.addAlarm(EKAlarm(absoluteDate: Date().addingTimeInterval(20)))
     do {
       try store.save(reminder, commit: true)
     } catch {
