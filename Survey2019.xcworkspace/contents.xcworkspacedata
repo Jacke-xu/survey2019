@@ -2,6 +2,30 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:09_MultiDelegate_Swift/09_MultiDelegate_Swift.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:08_EventKit/08_EventKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:07_QRScan/07_QRScan.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:06_WaterRipple/06_WaterRipple.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:06_CircleLoading/06_CircleLoading.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:05_CountDown/05_CountDown.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:04_popView/04_popView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:03_PopOver/03_PopOver.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:01_AVAudioSession/01_AVAudioSession.xcodeproj">
    </FileRef>
    <FileRef
