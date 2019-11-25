@@ -15,6 +15,7 @@
 		8272313722AAA80700563BC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272313622AAA80700563BC9 /* main.m */; };
 		8272314122AAA80700563BC9 /* _5_CountDownTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272314022AAA80700563BC9 /* _5_CountDownTests.m */; };
 		8272314C22AAA80700563BC9 /* _5_CountDownUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272314B22AAA80700563BC9 /* _5_CountDownUITests.m */; };
+		828984732372B4D500D03A93 /* news.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 828984722372B4D500D03A93 /* news.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8272314722AAA80700563BC9 /* 05_CountDownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 05_CountDownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8272314B22AAA80700563BC9 /* _5_CountDownUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _5_CountDownUITests.m; sourceTree = "<group>"; };
 		8272314D22AAA80700563BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		828984722372B4D500D03A93 /* news.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = news.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		8272312622AAA80600563BC9 /* 05_CountDown */ = {
 			isa = PBXGroup;
 			children = (
+				828984722372B4D500D03A93 /* news.mp3 */,
 				8272312722AAA80600563BC9 /* AppDelegate.h */,
 				8272312822AAA80600563BC9 /* AppDelegate.m */,
 				8272312A22AAA80600563BC9 /* ViewController.h */,
@@ -238,6 +241,7 @@
 				8272313422AAA80700563BC9 /* LaunchScreen.storyboard in Resources */,
 				8272313122AAA80700563BC9 /* Assets.xcassets in Resources */,
 				8272312F22AAA80600563BC9 /* Main.storyboard in Resources */,
+				828984732372B4D500D03A93 /* news.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,13 +440,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9WUQQBVA6S;
+				DEVELOPMENT_TEAM = 2BQB79N6ZP;
 				INFOPLIST_FILE = 05_CountDown/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mobvoi.test2.-5-CountDown";
+				PRODUCT_BUNDLE_IDENTIFIER = moxiaoyan.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,13 +458,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9WUQQBVA6S;
+				DEVELOPMENT_TEAM = 2BQB79N6ZP;
 				INFOPLIST_FILE = 05_CountDown/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mobvoi.test2.-5-CountDown";
+				PRODUCT_BUNDLE_IDENTIFIER = moxiaoyan.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
